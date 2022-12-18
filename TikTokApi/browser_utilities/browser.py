@@ -82,7 +82,9 @@ class browser(BrowserInterface):
         await context.close()
 
         return self
-
+    async def get_cookie(self) -> None:
+        return self.page.context().cookies()
+    
     async def get_params(self, page) -> None:
         self.browser_language = self.kwargs.get(
             "browser_language",
